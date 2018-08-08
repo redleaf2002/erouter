@@ -39,6 +39,6 @@ task clean(type: Delete) {
 ext {
     userOrg = 'redleaf2002'
     groupId = "com.leaf"
-    website = 'https://github.com/redleaf2002/magic_network'
+    website = 'https://github.com/redleaf2002/erouter'
 
 }
