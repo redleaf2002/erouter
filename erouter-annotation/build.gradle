@@ -1,0 +1,19 @@
+apply plugin: 'java-library'
+//apply plugin: 'com.novoda.bintray-release'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+
+//publish {
+//    userOrg = rootProject.ext.userOrg
+//    groupId = rootProject.ext.groupId
+//    website = rootProject.ext.website
+//    artifactId = 'erouterannotation'
+//    publishVersion = '1.0.0'
+//    desc = 'provier erouter annotation'
+//}

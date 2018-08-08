@@ -1,0 +1,23 @@
+apply plugin: 'java-library'
+//apply plugin: 'com.novoda.bintray-release'
+
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.leaf:erouterannotation:1.0.0'
+    implementation 'com.google.auto.service:auto-service:1.0-rc2'
+    implementation 'com.squareup:javapoet:1.7.0'
+}
+
+//publish {
+//    userOrg = rootProject.ext.userOrg
+//    groupId = rootProject.ext.groupId
+//    website = rootProject.ext.website
+//    artifactId = 'eroutercompiler'
+//    publishVersion = '1.0.0'
+//    desc = 'provier erouter compiler'
+//}

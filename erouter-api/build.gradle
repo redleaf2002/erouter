@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+
+    compileSdkVersion 26
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.leaf:erouterannotation:1.0.0'
+
+}
+
+
+
+publish {
+    userOrg = rootProject.ext.userOrg
+    groupId = rootProject.ext.groupId
+    website = rootProject.ext.website
+    artifactId = 'erouterapi'
+    publishVersion = '1.0.1'
+    desc = 'provider erouter api'
+}
+
+
