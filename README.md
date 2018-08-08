@@ -34,9 +34,9 @@ public class SkipActivity extends AppCompatActivity {
   ERouter.getInstance().register(this);
   ERouter.getInstance().unregister(this);
   
-  增加注解方法：
+  ###### 增加注解方法：
    @EasyRegister()
-    public void onEventInfoBean(final EventInfoBean event) {}
+   public void onEventInfoBean(final EventInfoBean event) {}
  
 
 
