@@ -24,14 +24,17 @@
     
 ### 1. activity跳转功能 
 
-#### 1.  在目标activity中增加
+#### 1.  在目标activity中增加注解 @EasyRouter(path = "")
 
+```java
 @EasyRouter(path = "/test/SkipActivity")
-public class SkipActivity extends AppCompatActivity {
-
+public class SkipActivity extends AppCompatActivity {}
+```
 #### 2. 在需要的地方跳转
+```java
  ERouter.getInstance().build(MainActivity.this).setIntent(null).skipTo
                         ("/test/SkipActivity");
+```
 
 ### 2. post事件数据
 
@@ -39,14 +42,16 @@ public class SkipActivity extends AppCompatActivity {
   ERouter.getInstance().post(new EventInfoBean(content));
 
 #### 2. 在接收的地方增加注解和解除注解
-
+```java
   ERouter.getInstance().register(this);
   ERouter.getInstance().unregister(this);
-  
+  ```
 ###### 增加注解方法：
+```java
    @EasyRegister()
    public void onEventInfoBean(final EventInfoBean event) {
    }
+```
  
 
 
