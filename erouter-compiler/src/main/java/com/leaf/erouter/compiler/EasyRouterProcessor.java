@@ -36,6 +36,7 @@ public class EasyRouterProcessor extends AbstractProcessor {
     private ProcessingEnvironment processingEnvironment;
     private Map<String, RouterBean> infoMap = new HashMap<>();
     private Elements elementUtil;
+    private String moduleName;
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
@@ -44,6 +45,12 @@ public class EasyRouterProcessor extends AbstractProcessor {
         this.messager = processingEnvironment.getMessager();
         this.elementUtil = processingEnvironment.getElementUtils();
 
+        Map<String, String> options = processingEnvironment.getOptions();
+        if (options != null) {
+            moduleName = options.get("moduleName");
+            messager.printMessage(Diagnostic.Kind.NOTE,
+                    "EasyRouterProcessor moduleName = " + moduleName);
+        }
     }
 
     @Override
@@ -73,7 +80,8 @@ public class EasyRouterProcessor extends AbstractProcessor {
         TypeElement iRouterElement = elementUtil.getTypeElement("com.leaf.erouter.api.template.IRouter");
         ClassName iRouter = ClassName.get(iRouterElement);
 
-        TypeSpec routerSpec = TypeSpec.classBuilder("EasyRouterManager")
+        String rooterClass = "EasyRouterManager$$" + this.moduleName;
+        TypeSpec routerSpec = TypeSpec.classBuilder(rooterClass)
                 .addMethod(loadInfoSpec)
                 .addModifiers(Modifier.PUBLIC)
                 .addSuperinterface(iRouter)

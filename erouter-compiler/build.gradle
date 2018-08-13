@@ -18,6 +18,6 @@ dependencies {
 //    groupId = rootProject.ext.groupId
 //    website = rootProject.ext.website
 //    artifactId = 'eroutercompiler'
-//    publishVersion = '1.0.0'
+//    publishVersion = '1.0.1'
 //    desc = 'provier erouter compiler'
 //}

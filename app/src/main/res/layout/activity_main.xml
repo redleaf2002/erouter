@@ -19,6 +19,12 @@
             android:layout_marginTop="20dp"
             android:text="skip to activity"/>
 
+    <Button android:id="@+id/skip_other_module"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="skip to other module"/>
+
     <Button android:id="@+id/post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

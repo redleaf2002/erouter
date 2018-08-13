@@ -40,5 +40,7 @@ ext {
     userOrg = 'redleaf2002'
     groupId = "com.leaf"
     website = 'https://github.com/redleaf2002/erouter'
-
+    minSdkVersion = 15
+    targetSdkVersion = 26
+    compileSdkVersion = 26
 }

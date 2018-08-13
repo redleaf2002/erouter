@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initView() {
         Button skipBnt = findViewById(R.id.skip);
+        Button skipOtherBnt = findViewById(R.id.skip_other_module);
         Button postBnt = findViewById(R.id.post);
         mReceiverView = findViewById(R.id.receiver);
 
         skipBnt.setOnClickListener(this);
+        skipOtherBnt.setOnClickListener(this);
         postBnt.setOnClickListener(this);
     }
 
@@ -58,6 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.skip:
                 ERouter.getInstance().build(MainActivity.this).setIntent(null).skipTo
                         ("/test/SkipActivity");
+                break;
+
+            case R.id.skip_other_module:
+                ERouter.getInstance().build(MainActivity.this).setIntent(null).skipTo
+                        ("/test/HomeActivity");
                 break;
             case R.id.post:
                 ERouter.getInstance().post(new EventInfoBean("event"));

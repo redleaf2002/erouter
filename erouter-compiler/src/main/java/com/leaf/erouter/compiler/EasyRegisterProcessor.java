@@ -43,6 +43,7 @@ public class EasyRegisterProcessor extends AbstractProcessor {
     private Map<String, Map<String, RegisterBean>> eventMap = new HashMap<>();
 
     private Elements elementUtil;
+    private String moduleName;
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
@@ -50,6 +51,12 @@ public class EasyRegisterProcessor extends AbstractProcessor {
         this.processingEnvironment = processingEnvironment;
         this.messager = processingEnvironment.getMessager();
         this.elementUtil = processingEnvironment.getElementUtils();
+        Map<String, String> options = processingEnvironment.getOptions();
+        if (options != null) {
+            moduleName = options.get("moduleName");
+            messager.printMessage(Diagnostic.Kind.NOTE,
+                    "EasyRegisterProcessor moduleName = " + moduleName);
+        }
     }
 
     @Override
@@ -111,7 +118,8 @@ public class EasyRegisterProcessor extends AbstractProcessor {
         TypeElement iRegisterElement = elementUtil.getTypeElement("com.leaf.erouter.api.template.IRegister");
         ClassName iRegister = ClassName.get(iRegisterElement);
 
-        TypeSpec routerSpec = TypeSpec.classBuilder("EasyRegisterManager")
+        String rooterClass = "EasyRegisterManager$$" + this.moduleName;
+        TypeSpec routerSpec = TypeSpec.classBuilder(rooterClass)
                 .addMethod(loadInfoSpec)
                 .addModifiers(Modifier.PUBLIC)
                 .addSuperinterface(iRegister)
