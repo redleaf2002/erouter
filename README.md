@@ -9,8 +9,17 @@
 实现了arouter和eventbus的主要功能 有利于各个module的解耦
 
 ## 使用:
-#### 在build gradle中增加两个依赖
-    annotationProcessor "com.leaf:eroutercompiler:1.0.0"
+#### 在需要使用的module的build gradle中增加两个依赖
+
+    defaultConfig {
+          javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+    annotationProcessor "com.leaf:eroutercompiler:1.0.1"
     implementation 'com.leaf:erouterapi:1.0.1'
     
 ### 1. activity跳转功能 
