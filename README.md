@@ -9,7 +9,7 @@
 实现了arouter和eventbus的主要功能 有利于各个module的解耦
 
 ## 使用:
-#### 在需要使用的module的build gradle中增加两个依赖
+#### 在需要使用的module的build gradle中增加moduleName和两个依赖
 
     defaultConfig {
           javaCompileOptions {
@@ -19,8 +19,11 @@
             }
         }
     }
+    
+    dependencies {
     annotationProcessor "com.leaf:eroutercompiler:1.0.1"
     implementation 'com.leaf:erouterapi:1.0.1'
+    }
     
 ### 1. activity跳转功能 
 
